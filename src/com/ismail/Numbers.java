@@ -91,6 +91,8 @@ public class Numbers {
         double pi2 = Math.PI;
         System.out.println(pi2);
 
+        addAnyTwoNumbers(2);
+        addAnyTwoNumbers(2.4);
 
     }
 
@@ -102,6 +104,11 @@ public class Numbers {
         DecimalFormat myFormatter = new DecimalFormat(pattern);
         String output = myFormatter.format(value);
         System.out.println(value + "  " + pattern + "  " + output);
+    }
+
+    // Generics
+    static <T> void addAnyTwoNumbers(T a) {
+        System.out.println(a);
     }
 
 }

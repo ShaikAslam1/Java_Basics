@@ -1,4 +1,4 @@
-package com.ismail;
+package com.hackerrank;
 
 import java.util.Scanner;
 
