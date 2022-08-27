@@ -80,9 +80,5 @@ public class DataStructures {
         Set<String> mapKeys = mapA.keySet();
         System.out.println(mapKeys);
         System.out.println(mapA.get("six"));
-
-
-
-
     }
 }
