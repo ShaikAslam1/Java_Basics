@@ -8,26 +8,32 @@ public class QuickSortRecursion {
         if (startIndex >= endIndex) {
             return;
         }
+
         int pivotIndex = partition(input, startIndex, endIndex);
 
         quickSort(input, startIndex, pivotIndex - 1);
         quickSort(input, pivotIndex + 1, endIndex);
     }
 
-    public static int partition(int[] input, int startIndex, int endIndex) {
+    private static int partition(int[] input, int startIndex, int endIndex) {
         int pivotElement = input[startIndex];
         int smallerNumCount = 0;
+
         for (int i = startIndex + 1; i <= endIndex; i++) {
             if (input[i] < pivotElement) {
                 smallerNumCount++;
             }
         }
+
+        // keep the pivot element in its correct place
         int temp = input[startIndex + smallerNumCount];
         input[startIndex + smallerNumCount] = pivotElement;
         input[startIndex] = temp;
+
         int i = startIndex;
         int j = endIndex;
-        while (i < j) {
+
+        while (i<j) {
             if (input[i] < pivotElement) {
                 i++;
             } else if (input[j] >= pivotElement) {
