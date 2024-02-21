@@ -17,6 +17,8 @@ public class ArraySubsetRecursion {
         int[][] smallAns = subsets(input, si + 1);
         int[][] ans = new int[smallAns.length * 2][];
         int k = 0;
+
+        // add element at ith array
         for (int i = 0; i < smallAns.length; i++) {
             ans[i] = new int[smallAns[i].length];
             for (int j = 0; j < smallAns[i].length; j++) {
@@ -24,6 +26,8 @@ public class ArraySubsetRecursion {
             }
             k++;
         }
+
+        // add element at k+i th array
         for (int i = 0; i < smallAns.length; i++) {
             ans[k + i] = new int[smallAns[i].length + 1];
             ans[k + i][0] = input[si];
@@ -38,8 +42,8 @@ public class ArraySubsetRecursion {
     public static void main(String[] args) {
         int[] input = {15, 20, 12};
         int[][] answer = subsets(input);
-        for (int[] ints : answer) {
-            for (int anInt : ints) {
+        for (int[] ans : answer) {
+            for (int anInt : ans) {
                 System.out.print(anInt + " ");
             }
             System.out.println();
