@@ -1,5 +1,6 @@
 package com.fuctional;
 
+import java.util.function.BiFunction;
 import java.util.function.Function;
 
 public class FunctionClass {
@@ -12,6 +13,14 @@ public class FunctionClass {
         double factorial = factorial(10);
         System.out.println("Factorial of 10 is: " + factorial);
         // andThen and compose methods also available in function interface
+        Function<String, Integer> functionCompose = function.compose(s -> s);
+        System.out.println("Functional Compose: " + functionCompose.apply("I want to learn GO Lang"));
+
+        // BiFunction
+        BiFunction<Integer, Integer, Integer> biFunction = (a, b) -> a+b;
+        BiFunction<Integer, Integer, Integer> andThen = biFunction.andThen((a) -> a * 4);
+
+        System.out.println(andThen.apply(4, 5));
     }
 
     private static double factorial(int n) {
