@@ -1,6 +1,8 @@
 package com.fuctional;
 
-public class Employee {
+import java.util.Objects;
+
+public class Employee implements Comparable<Employee> {
     private String name;
     private String department;
     private Integer salary;
@@ -44,5 +46,24 @@ public class Employee {
                 ", department='" + department + '\'' +
                 ", salary=" + salary +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Employee)) return false;
+        Employee employee = (Employee) o;
+        return Objects.equals(getName(), employee.getName()) && Objects.equals(getDepartment(),
+                employee.getDepartment()) && Objects.equals(getSalary(), employee.getSalary());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName(), getDepartment(), getSalary());
+    }
+
+    @Override
+    public int compareTo(Employee o) {
+        return this.getName().compareTo(o.getName());
     }
 }
