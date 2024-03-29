@@ -202,7 +202,7 @@ public class StreamMethods {
         Map<Boolean, List<Employee>> partitionBySalary = empList.stream().collect(Collectors.partitioningBy(employee -> employee.getSalary() > 7000));
         partitionBySalary.entrySet().forEach(System.out::println);
 
-        // teeing is added in JDK 12 not available in JDK 8
+        // teeing -> composite of two collectors and a downstream to merge the result, this is added in JDK 12 not available in JDK 8
 
         System.out.println();
         // summarizingInt
