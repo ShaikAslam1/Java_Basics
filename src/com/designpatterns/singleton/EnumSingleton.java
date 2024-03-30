@@ -1,4 +1,4 @@
-package com.designPatterns.singleton;
+package com.designpatterns.singleton;
 
 public enum EnumSingleton {
     // to overcome the singleton reflection issue

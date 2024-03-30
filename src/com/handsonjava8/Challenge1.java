@@ -1,7 +1,6 @@
-package com.handsonJava8;
+package com.handsonjava8;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 // Write your answer here, and then test your code.
 // Your job is to implement the findAnswer() method.

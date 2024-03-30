@@ -1,4 +1,4 @@
-package com.designPatterns.factory;
+package com.designpatterns.factory;
 
 public class TestFactory {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package com.designPatterns.singleton;
+package com.designpatterns.singleton;
 
 public class BillPughSingleton {
     // Bill pugh came up with an approach to create singleton using

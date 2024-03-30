@@ -1,4 +1,4 @@
-package com.designPatterns.factory;
+package com.designpatterns.factory;
 
 public abstract class Computer {
     /*

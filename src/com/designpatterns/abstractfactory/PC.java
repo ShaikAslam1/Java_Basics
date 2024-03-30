@@ -1,4 +1,4 @@
-package com.designPatterns.factory;
+package com.designpatterns.abstractfactory;
 
 public class PC extends Computer {
 

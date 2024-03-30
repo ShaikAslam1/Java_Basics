@@ -1,4 +1,4 @@
-package com.designPatterns.factory;
+package com.designpatterns.factory;
 
 public class ComputerFactory {
     public static Computer getComputer(String type, String ram, String hdd, String cpu) {

@@ -1,4 +1,4 @@
-package com.handsonJava8;
+package com.handsonjava8;
 
 import java.math.BigInteger;
 import java.util.*;
