@@ -1,6 +1,12 @@
 package com.designpatterns.structuraldesign.adapter;
 
 public class AdapterPatternTest {
+    /*
+    Some of the adapter design pattern examples found in JDK classes
+    1. java.util.Arrays#asList()
+    2. java.io.InputStreamReader(InputStream) (returns a Reader)
+    3. java.io.OutputStreamWriter(OutputStream) (returns a Writer)
+     */
     public static void main(String[] args) {
         testClassAdapter();
         System.out.println("===========================");
