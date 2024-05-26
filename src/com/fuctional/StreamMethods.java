@@ -1,13 +1,6 @@
 package com.fuctional;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.IntSummaryStatistics;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeSet;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -147,6 +140,7 @@ public class StreamMethods {
          boxed() in IntStream used to get a Stream consisting of the elements of this stream.
          */
         Stream<Integer> intStream = IntStream.of(1, 2, 3, 4, 5, 6).boxed();
+//        IntStream.of(1, 2, 3).collect(Collectors.toList()); compile time error
 
         System.out.println();
         // anyMatch()
@@ -184,6 +178,10 @@ public class StreamMethods {
         Map<String, Integer> empNameSalary = empList.stream().distinct().collect(Collectors.toMap(Employee::getName, Employee::getSalary));
         empNameSalary.entrySet().forEach(System.out::println);
 
+        // joining
+        String names = empList.stream().map(Employee::getName).collect(Collectors.joining(", "));
+        System.out.println("Names: " + names);
+
         System.out.println();
         // summingInt
         System.out.println("summingInt");
@@ -203,6 +201,7 @@ public class StreamMethods {
         partitionBySalary.entrySet().forEach(System.out::println);
 
         // teeing -> composite of two collectors and a downstream to merge the result, this is added in JDK 12 not available in JDK 8
+        // empList.stream().collect(Collectors.teeing(Collectors.counting(), Collectors.summarizingInt(n -> n)));
 
         System.out.println();
         // summarizingInt
@@ -211,5 +210,31 @@ public class StreamMethods {
         System.out.println("max: " + salaryStatistics.getMax() + ", min: " + salaryStatistics.getMin()
                 + ", average: " + salaryStatistics.getAverage() + ", sum: " + salaryStatistics.getSum()
                 + ", count: " + salaryStatistics.getCount());
+
+        // Convert to Linked List
+        LinkedList<Employee> linkedListEmpList = empList.stream().collect(Collectors.toCollection(LinkedList::new));
+
+        int[][] i = {{1, 2, 3}, {4, 5, 6}};
+        Stream<int[]> intSteam = Arrays.stream(i);
+        intSteam.flatMapToInt(e -> IntStream.of(e)).forEach(System.out::println);
+        System.out.println("Map");
+        List<List<String>> list = Arrays.asList(Arrays.asList("a", "b"), Arrays.asList("c", "d"));
+        List<Stream<String>> resultlist = list.stream()
+                .map(a -> a.stream().map(String::toUpperCase))
+                .collect(Collectors.toList());
+        resultlist.forEach(a -> a.forEach(System.out::println));
+
+        System.out.println("flat map");
+        List<String> resultlist2 = list.stream()
+                .flatMap(a -> a.stream().map(String::toUpperCase))
+                .collect(Collectors.toList());
+        resultlist2.forEach(System.out::println);
+
+        System.out.println("Random");
+        Random random = new Random();
+        random.ints(10, 1, 101)
+//                .limit(10)
+                .forEach(System.out::println);
+
     }
 }
